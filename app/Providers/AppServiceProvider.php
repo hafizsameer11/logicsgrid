@@ -45,6 +45,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         URL::forceRootUrl($url);
+        config(['app.url' => $url, 'app.asset_url' => $url]);
 
         if (app()->environment('production')) {
             URL::forceScheme('https');

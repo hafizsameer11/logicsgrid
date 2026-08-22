@@ -17,6 +17,7 @@ if [ -n "$APP_URL" ]; then
         *) export APP_URL="https://${APP_URL#/}" ;;
     esac
     export APP_URL="${APP_URL%/}"
+    export ASSET_URL="$APP_URL"
 fi
 
 if [ -z "$DB_CONNECTION" ]; then
@@ -73,8 +74,9 @@ if [ "${RUN_SEED:-true}" != "false" ]; then
 fi
 
 php artisan package:discover --ansi 2>/dev/null || true
+php artisan config:clear 2>/dev/null || true
+php artisan route:clear 2>/dev/null || true
 php artisan config:cache
-php artisan route:cache
 php artisan view:cache
 php artisan filament:optimize 2>/dev/null || true
 
