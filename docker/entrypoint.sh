@@ -11,6 +11,14 @@ if [ -z "$APP_KEY" ]; then
     exit 1
 fi
 
+if [ -n "$APP_URL" ]; then
+    case "$APP_URL" in
+        http://*|https://*) ;;
+        *) export APP_URL="https://${APP_URL#/}" ;;
+    esac
+    export APP_URL="${APP_URL%/}"
+fi
+
 if [ -z "$DB_CONNECTION" ]; then
     export DB_CONNECTION=sqlite
     export DB_DATABASE=/var/www/html/database/database.sqlite

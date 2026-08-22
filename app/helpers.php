@@ -13,11 +13,27 @@ if (! function_exists('media_url')) {
             return $path;
         }
 
-        if (str_starts_with($path, 'assets/')) {
-            return asset($path);
+        if (str_starts_with($path, 'assets/') || str_starts_with($path, 'css/') || str_starts_with($path, 'js/')) {
+            return public_asset($path);
         }
 
-        return asset('storage/'.$path);
+        return public_asset('storage/'.$path);
+    }
+}
+
+if (! function_exists('public_asset')) {
+    function public_asset(string $path): string
+    {
+        return '/'.ltrim($path, '/');
+    }
+}
+
+if (! function_exists('fix_malformed_asset_urls')) {
+    function fix_malformed_asset_urls(string $html): string
+    {
+        $html = preg_replace('#https?://[^"\'\s>]+\.[^/"\'\s>]+/logicsgrid\.org/(assets|css|js)/#', '/$1/', $html) ?? $html;
+
+        return preg_replace('#/logicsgrid\.org/(assets|css|js)/#', '/$1/', $html) ?? $html;
     }
 }
 
@@ -28,22 +44,22 @@ if (! function_exists('render_cms_html')) {
             return '';
         }
 
-        if (! str_contains($html, '{{') && ! str_contains($html, '@')) {
-            return $html;
+        if (str_contains($html, '{{') || str_contains($html, '@')) {
+            try {
+                $html = Blade::render($html);
+            } catch (\Throwable) {
+                $html = preg_replace_callback(
+                    "/\{\{\s*asset\(\s*['\"]([^'\"]+)['\"]\s*\)\s*\}\}/",
+                    fn (array $matches) => public_asset($matches[1]),
+                    preg_replace_callback(
+                        "/\{\{\s*url\(\s*['\"]([^'\"]+)['\"]\s*\)\s*\}\}/",
+                        fn (array $matches) => url($matches[1]),
+                        $html
+                    ) ?? $html
+                ) ?? $html;
+            }
         }
 
-        try {
-            return Blade::render($html);
-        } catch (\Throwable) {
-            return preg_replace_callback(
-                "/\{\{\s*asset\(\s*['\"]([^'\"]+)['\"]\s*\)\s*\}\}/",
-                fn (array $matches) => asset($matches[1]),
-                preg_replace_callback(
-                    "/\{\{\s*url\(\s*['\"]([^'\"]+)['\"]\s*\)\s*\}\}/",
-                    fn (array $matches) => url($matches[1]),
-                    $html
-                ) ?? $html
-            ) ?? $html;
-        }
+        return fix_malformed_asset_urls($html);
     }
 }
