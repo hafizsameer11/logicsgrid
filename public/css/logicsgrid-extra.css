@@ -1,0 +1,92 @@
+:root {
+    --lg-primary: #4A69BD;
+    --lg-accent: #4ECDC4;
+    --lg-deep: #2A3B8F;
+    --lg-light: #E8F4FC;
+}
+
+.lg-btn {
+    background: var(--lg-primary) !important;
+    color: #ffffff !important;
+}
+
+.lg-btn:hover {
+    opacity: 0.92;
+}
+
+.lg-btn-outline {
+    border-color: var(--lg-primary) !important;
+    color: var(--lg-primary) !important;
+}
+
+.lg-logo-footer {
+    filter: brightness(0) invert(1);
+}
+
+@keyframes marquee-scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.marquee-track {
+    animation: marquee-scroll 40s linear infinite;
+    width: max-content;
+}
+
+#scroll-progress-bar {
+    transform-origin: 0% 50%;
+    background: #000000;
+    transform: scaleX(0);
+    transition: transform 0.1s linear;
+}
+
+.mobile-nav-open .mobile-menu-panel {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+}
+
+.mobile-menu-panel {
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-8px);
+    transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.mobile-nav-open [data-menu-line-1] {
+    transform: translateY(3px) rotate(45deg);
+}
+
+.mobile-nav-open [data-menu-line-2] {
+    transform: translateY(-3px) rotate(-45deg);
+}
+
+.logicsgrid-reveal {
+    opacity: 1;
+    transform: none;
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.logicsgrid-reveal.logicsgrid-reveal--animate {
+    opacity: 0;
+    transform: translateY(24px);
+}
+
+.logicsgrid-reveal.logicsgrid-reveal--animate.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Horizontal screen galleries on case study pages */
+.overflow-x-auto.scroll-smooth,
+[style*="overflow-x:auto"],
+[style*="overflow-x: auto"] {
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+}
+
+.overflow-x-auto.scroll-smooth img,
+[style*="overflow-x:auto"] img,
+[style*="overflow-x: auto"] img {
+    scroll-snap-align: start;
+}

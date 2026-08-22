@@ -1,0 +1,10 @@
+# Track site images and brand assets in git (Dokploy deploys from repo)
+public/assets/** linguist-vendored
+public/assets/** -diff
+brand-assets/** -diff
+*.png binary
+*.webp binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary

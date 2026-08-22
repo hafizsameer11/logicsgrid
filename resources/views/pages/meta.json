@@ -1,0 +1,118 @@
+{
+  "about": {
+    "file": "about.blade.php",
+    "title": "About LogicsGrid \u2014 Builders of Ventures, Growth &amp; Digital Transformation"
+  },
+  "team": {
+    "file": "team.blade.php",
+    "title": "Team \u2014 LogicsGrid"
+  },
+  "contact": {
+    "file": "contact.blade.php",
+    "title": "Contact \u2014 LogicsGrid"
+  },
+  "portfolio": {
+    "file": "portfolio.blade.php",
+    "title": "Portfolio \u2014 LogicsGrid"
+  },
+  "why-logicsgrid": {
+    "file": "why-logicsgrid.blade.php",
+    "title": "Why LogicsGrid \u2014 LogicsGrid"
+  },
+  "strategy-session": {
+    "file": "strategy-session.blade.php",
+    "title": "Book A Private Strategy Session \u2014 LogicsGrid"
+  },
+  "software-development": {
+    "file": "software-development.blade.php",
+    "title": "Software Development \u2014 LogicsGrid"
+  },
+  "startup-growth": {
+    "file": "startup-growth.blade.php",
+    "title": "Startup Growth Infrastructure \u2014 LogicsGrid"
+  },
+  "ai-solutions": {
+    "file": "ai-solutions.blade.php",
+    "title": "AI For Business \u2014 LogicsGrid"
+  },
+  "venture-building": {
+    "file": "venture-building.blade.php",
+    "title": "Venture Building \u2014 LogicsGrid"
+  },
+  "business-digitization": {
+    "file": "business-digitization.blade.php",
+    "title": "Business Digitization \u2014 LogicsGrid"
+  },
+  "portfolio/kokolet-luxury": {
+    "file": "portfolio-kokolet-luxury.blade.php",
+    "title": "Kokolet Luxury (Lagos) \u2014 Kokolet Luxury \u2014 a sneaker &amp; fashion boutique app with a built-in loyalty circle \u00b7 LogicsGrid"
+  },
+  "portfolio/billspro-fintech": {
+    "file": "portfolio-billspro-fintech.blade.php",
+    "title": "BillsPro (UK) \u2014 BillsPro \u2014 crypto, bills &amp; USD virtual cards in one fintech app \u00b7 LogicsGrid"
+  },
+  "portfolio/colala-mall": {
+    "file": "portfolio-colala-mall.blade.php",
+    "title": "Colala Mall (Lagos) \u2014 Colala Mall \u2014 a commission-free marketplace for buyers &amp; sellers in Nigeria \u00b7 LogicsGrid"
+  },
+  "industries": {
+    "file": "industries.blade.php",
+    "title": "Industries \u2014 LogicsGrid"
+  },
+  "privacy": {
+    "file": "privacy.blade.php",
+    "title": "Privacy Policy \u2014 LogicsGrid"
+  },
+  "terms": {
+    "file": "terms.blade.php",
+    "title": "Terms of Service \u2014 LogicsGrid"
+  },
+  "portfolio/above-lifestyle": {
+    "file": "portfolio-above-lifestyle.blade.php",
+    "title": "Above Lifestyle (Lekki & Ikotun) \u2014 From paper menus to a digital restaurant \u2014 websites & QR-linked menus for Above Lifestyle \u00b7 LogicsGrid"
+  },
+  "portfolio/arctic-obgyn": {
+    "file": "portfolio-arctic-obgyn.blade.php",
+    "title": "Arctic Gynae Centre (Lagos) \u2014 Putting a specialist OB/GYN centre on the map \u2014 website for Arctic Gynae Centre \u00b7 LogicsGrid"
+  },
+  "portfolio/crystal-suites": {
+    "file": "portfolio-crystal-suites.blade.php",
+    "title": "Crystal Suites & Apartments (Lagos) \u2014 An online home & booking engine \u2014 website for Crystal Suites & Apartments \u00b7 LogicsGrid"
+  },
+  "portfolio/earlybaze-crypto": {
+    "file": "portfolio-earlybaze-crypto.blade.php",
+    "title": "Earlybaze Technologies (Lagos) \u2014 Earlybaze \u2014 buy, sell & swap crypto direct to Naira and ZAR \u00b7 LogicsGrid"
+  },
+  "portfolio/earlybaze-web": {
+    "file": "portfolio-earlybaze-web.blade.php",
+    "title": "Earlybaze (Lagos) \u2014 Promoting the wallet \u2014 marketing website for Earlybaze \u00b7 LogicsGrid"
+  },
+  "portfolio/gfm-extensions": {
+    "file": "portfolio-gfm-extensions.blade.php",
+    "title": "GFM Extensions (Lagos \u00b7 Canada) \u2014 Luxury hair extensions e-commerce \u2014 website for GFM Extensions \u00b7 LogicsGrid"
+  },
+  "portfolio/gympaddy-social": {
+    "file": "portfolio-gympaddy-social.blade.php",
+    "title": "GymPaddy \u2014 GymPaddy \u2014 social network, marketplace & live streaming for the fitness community \u00b7 LogicsGrid"
+  },
+  "portfolio/kokolet-luxury-web": {
+    "file": "portfolio-kokolet-luxury-web.blade.php",
+    "title": "Kokolet Luxury (Lagos) \u2014 A sneaker culture storefront \u2014 website for Kokolet Luxury \u00b7 LogicsGrid"
+  },
+  "portfolio/kokolet-pos": {
+    "file": "portfolio-kokolet-pos.blade.php",
+    "title": "Kokolet Luxury (Lagos) \u2014 Kokolet Luxury Point of Sale \u2014 one inventory across web, app & store \u00b7 LogicsGrid"
+  },
+  "portfolio/mainservice-logistics-erp": {
+    "file": "portfolio-mainservice-logistics-erp.blade.php",
+    "title": "Main Service Logistics \u2014 Main Service Logistics ERP \u2014 sea freight, warehousing, trucking & customs in one system \u00b7 LogicsGrid"
+  },
+  "portfolio/rhinoxpay-fintech": {
+    "file": "portfolio-rhinoxpay-fintech.blade.php",
+    "title": "RhinoxPay \u2014 RhinoxPay \u2014 send money across Africa, pay bills & trade crypto P2P \u00b7 LogicsGrid"
+  },
+  "portfolio/wcss-erp": {
+    "file": "portfolio-wcss-erp.blade.php",
+    "title": "WCSS Global (Integrated Facilities Management) \u2014 WCSS Global ERP \u2014 end-to-end operations for an IFM & hospitality group \u00b7 LogicsGrid"
+  }
+}
