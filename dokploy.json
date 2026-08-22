@@ -1,0 +1,7 @@
+{
+  "buildType": "dockerfile",
+  "dockerfile": "Dockerfile",
+  "dockerContextPath": ".",
+  "dockerBuildStage": "production",
+  "buildPath": "/"
+}
