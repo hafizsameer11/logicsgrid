@@ -1,5 +1,12 @@
 FROM composer:2 AS vendor
 
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    libicu-dev \
+    libzip-dev \
+    && docker-php-ext-install intl zip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 COPY composer.json composer.lock ./
