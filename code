@@ -16,7 +16,7 @@ COPY . .
 RUN composer dump-autoload --optimize --no-dev
 
 
-FROM php:8.3-fpm-bookworm AS production
+FROM php:8.4-fpm-bookworm AS production
 
 ENV APP_ENV=production \
     APP_DEBUG=false \
