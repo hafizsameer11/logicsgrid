@@ -25,6 +25,13 @@ class AdminPanelProvider extends PanelProvider
 {
     public function panel(Panel $panel): Panel
     {
+        $brandLogo = new HtmlString(
+            '<span class="lg-admin-brand" style="display:inline-flex;align-items:center;gap:0.65rem">'
+            .'<img src="'.e(asset('assets/logicsgrid-icon-transparent.png')).'" alt="" style="height:1.75rem;width:1.75rem;object-fit:contain;filter:none">'
+            .'<span style="font-family:Manrope,sans-serif;font-weight:700;font-size:1rem;letter-spacing:-0.02em;color:#fff">LogicsGrid</span>'
+            .'</span>'
+        );
+
         return $panel
             ->default()
             ->id('admin')
@@ -37,21 +44,21 @@ class AdminPanelProvider extends PanelProvider
                 'success' => Color::hex('#0F766E'),
                 'warning' => Color::hex('#B45309'),
                 'danger' => Color::hex('#B91C1C'),
-                'info' => Color::hex('#4ECDC4'),
+                'info' => Color::hex('#0891B2'),
             ])
             ->font('Manrope')
             ->brandName('LogicsGrid')
-            ->brandLogo(asset('assets/logicsgrid-logo-horizontal.png'))
-            ->brandLogoHeight('2.1rem')
+            ->brandLogo($brandLogo)
+            ->brandLogoHeight('2rem')
             ->favicon(asset('assets/logicsgrid-icon-transparent.png'))
             ->darkMode(false)
             ->sidebarCollapsibleOnDesktop()
-            ->sidebarWidth('17.5rem')
+            ->sidebarWidth('16.5rem')
             ->maxContentWidth(Width::Full)
             ->renderHook(
                 PanelsRenderHook::HEAD_END,
                 fn (): HtmlString => new HtmlString(
-                    '<link rel="stylesheet" href="'.e(asset('css/filament-admin.css')).'?v=1">'
+                    '<link rel="stylesheet" href="'.e(asset('css/filament-admin.css')).'?v=2">'
                 ),
             )
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')

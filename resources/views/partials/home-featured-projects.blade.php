@@ -27,7 +27,7 @@
                         @if($project->engagement_type)<div class="mt-1">{{ $project->engagement_type }}</div>@endif
                     </div>
                 </div>
-                <a href="{{ url('/portfolio/'.$project->slug) }}" class="lg-media col-span-12 lg:col-span-6 relative aspect-[16/10] lg:aspect-auto overflow-hidden rounded-2xl {{ $imgClass }}" style="box-shadow:0 28px 60px -36px rgba(15,23,42,0.4)">
+                <a href="{{ url('/portfolio/'.$project->slug) }}" class="col-span-12 lg:col-span-6 relative aspect-[16/10] lg:aspect-auto overflow-hidden rounded-2xl {{ $imgClass }}">
                     @if($project->cover_image)
                     <img src="{{ media_url($project->cover_image) }}" alt="{{ $project->title }}" loading="lazy" class="absolute inset-0 w-full h-full object-cover"/>
                     @endif

@@ -15,7 +15,7 @@
         </div>
         <div class="grid grid-cols-12 gap-5">
             @foreach($testimonials as $testimonial)
-            <figure class="lg-card col-span-12 md:col-span-6 lg:col-span-4 rounded-3xl p-8 flex flex-col justify-between {{ $testimonial->is_dark ? '' : 'bg-white' }}" style="{{ $testimonial->is_dark ? 'background:#0F172A;color:white;border-color:#0F172A' : '' }}">
+            <figure class="col-span-12 md:col-span-6 lg:col-span-4 rounded-3xl p-8 flex flex-col justify-between border {{ $testimonial->is_dark ? '' : 'bg-white' }}" style="{{ $testimonial->is_dark ? 'background:#000;color:white;border-color:#000' : 'border-color:rgba(0,0,0,0.1)' }}">
                 <div class="text-[40px] leading-none" style="color:#4ECDC4;font-family:'Fraunces', serif">&quot;</div>
                 <blockquote class="mt-2 text-[18px] leading-[1.45] font-medium" style="font-family:'Inter Tight', sans-serif">{{ $testimonial->quote }}</blockquote>
                 <figcaption class="mt-8 pt-6 border-t flex items-center justify-between" style="border-color:{{ $testimonial->is_dark ? 'rgba(255,255,255,0.15)' : 'rgba(0,0,0,0.1)' }}">
