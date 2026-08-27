@@ -9,12 +9,16 @@ use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Pages\Dashboard;
 use Filament\Panel;
 use Filament\PanelProvider;
+use Filament\Support\Colors\Color;
+use Filament\Support\Enums\Width;
+use Filament\View\PanelsRenderHook;
 use Filament\Widgets\AccountWidget;
 use Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse;
 use Illuminate\Cookie\Middleware\EncryptCookies;
 use Illuminate\Foundation\Http\Middleware\PreventRequestForgery;
 use Illuminate\Routing\Middleware\SubstituteBindings;
 use Illuminate\Session\Middleware\StartSession;
+use Illuminate\Support\HtmlString;
 use Illuminate\View\Middleware\ShareErrorsFromSession;
 
 class AdminPanelProvider extends PanelProvider
@@ -28,9 +32,28 @@ class AdminPanelProvider extends PanelProvider
             ->login()
             ->profile()
             ->colors([
-                'primary' => '#4A69BD',
+                'primary' => Color::hex('#4A69BD'),
+                'gray' => Color::Slate,
+                'success' => Color::hex('#0F766E'),
+                'warning' => Color::hex('#B45309'),
+                'danger' => Color::hex('#B91C1C'),
+                'info' => Color::hex('#4ECDC4'),
             ])
-            ->brandName('LogicsGrid Admin')
+            ->font('Manrope')
+            ->brandName('LogicsGrid')
+            ->brandLogo(asset('assets/logicsgrid-logo-horizontal.png'))
+            ->brandLogoHeight('2.1rem')
+            ->favicon(asset('assets/logicsgrid-icon-transparent.png'))
+            ->darkMode(false)
+            ->sidebarCollapsibleOnDesktop()
+            ->sidebarWidth('17.5rem')
+            ->maxContentWidth(Width::Full)
+            ->renderHook(
+                PanelsRenderHook::HEAD_END,
+                fn (): HtmlString => new HtmlString(
+                    '<link rel="stylesheet" href="'.e(asset('css/filament-admin.css')).'?v=1">'
+                ),
+            )
             ->discoverResources(in: app_path('Filament/Resources'), for: 'App\Filament\Resources')
             ->discoverPages(in: app_path('Filament/Pages'), for: 'App\Filament\Pages')
             ->pages([

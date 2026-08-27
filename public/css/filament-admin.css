@@ -1,0 +1,183 @@
+/* LogicsGrid Admin — professional Filament theme */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --lg-primary: #4A69BD;
+    --lg-primary-dark: #2A3B8F;
+    --lg-accent: #4ECDC4;
+    --lg-surface: #F5F7FB;
+    --lg-border: #E2E8F0;
+}
+
+html, body {
+    font-family: 'Manrope', ui-sans-serif, system-ui, sans-serif !important;
+}
+
+/* Login page */
+.fi-simple-layout {
+    background:
+        radial-gradient(ellipse 80% 60% at 10% 0%, rgba(74, 105, 189, 0.14), transparent 55%),
+        radial-gradient(ellipse 60% 50% at 100% 100%, rgba(78, 205, 196, 0.12), transparent 50%),
+        linear-gradient(180deg, #F8FAFC 0%, #EEF2F7 100%) !important;
+}
+
+.fi-simple-main {
+    border: 1px solid var(--lg-border) !important;
+    box-shadow: 0 24px 60px -28px rgba(42, 59, 143, 0.35) !important;
+    border-radius: 1.25rem !important;
+}
+
+.fi-logo {
+    justify-content: center;
+}
+
+/* Logo is dark-on-light; invert on dark sidebar */
+.fi-sidebar .fi-logo img,
+.fi-sidebar-header img {
+    filter: brightness(0) invert(1);
+    opacity: 0.95;
+}
+
+/* Sidebar */
+.fi-sidebar {
+    background: linear-gradient(180deg, #0F172A 0%, #152238 55%, #1A2744 100%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+
+.fi-sidebar-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    background: transparent !important;
+}
+
+.fi-sidebar-nav-groups {
+    gap: 1.25rem;
+}
+
+.fi-sidebar-group-label {
+    color: rgba(255, 255, 255, 0.45) !important;
+    letter-spacing: 0.14em !important;
+    text-transform: uppercase !important;
+    font-size: 0.68rem !important;
+    font-weight: 700 !important;
+}
+
+.fi-sidebar-item-button {
+    border-radius: 0.7rem !important;
+    color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.fi-sidebar-item-button:hover {
+    background: rgba(255, 255, 255, 0.06) !important;
+    color: #fff !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-button,
+.fi-sidebar-item.fi-active .fi-sidebar-item-button {
+    background: linear-gradient(90deg, rgba(74, 105, 189, 0.45), rgba(78, 205, 196, 0.18)) !important;
+    color: #fff !important;
+    box-shadow: inset 3px 0 0 var(--lg-accent);
+}
+
+.fi-sidebar-item-icon {
+    color: rgba(255, 255, 255, 0.55) !important;
+}
+
+.fi-sidebar-item-active .fi-sidebar-item-icon,
+.fi-sidebar-item.fi-active .fi-sidebar-item-icon {
+    color: var(--lg-accent) !important;
+}
+
+/* Topbar + content */
+.fi-topbar {
+    background: rgba(255, 255, 255, 0.86) !important;
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--lg-border) !important;
+}
+
+.fi-main,
+.fi-main-ctn,
+.fi-body {
+    background: var(--lg-surface) !important;
+}
+
+.fi-header-heading {
+    font-weight: 800 !important;
+    letter-spacing: -0.025em !important;
+    color: #0F172A !important;
+}
+
+/* Cards / sections */
+.fi-section,
+.fi-ta-ctn,
+.fi-wi-stats-overview-stat {
+    border-radius: 1rem !important;
+    border-color: var(--lg-border) !important;
+    box-shadow: 0 10px 30px -22px rgba(15, 23, 42, 0.35) !important;
+}
+
+.fi-wi-stats-overview-stat {
+    background: #fff !important;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fi-wi-stats-overview-stat:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 36px -24px rgba(42, 59, 143, 0.45) !important;
+}
+
+.fi-wi-stats-overview-stat-value {
+    font-weight: 800 !important;
+    letter-spacing: -0.03em !important;
+    color: #0F172A !important;
+}
+
+.fi-wi-stats-overview-stat-label {
+    letter-spacing: 0.04em !important;
+    text-transform: uppercase !important;
+    font-size: 0.7rem !important;
+    color: #64748B !important;
+}
+
+/* Buttons */
+.fi-btn-primary,
+button.fi-btn.fi-color-primary {
+    background: linear-gradient(135deg, var(--lg-primary) 0%, var(--lg-primary-dark) 100%) !important;
+    border: none !important;
+    box-shadow: 0 8px 20px -10px rgba(74, 105, 189, 0.8) !important;
+}
+
+.fi-btn-primary:hover,
+button.fi-btn.fi-color-primary:hover {
+    filter: brightness(1.05);
+}
+
+/* Tables */
+.fi-ta-header-cell {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.08em !important;
+    text-transform: uppercase !important;
+    color: #64748B !important;
+}
+
+.fi-ta-row {
+    transition: background 0.15s ease;
+}
+
+/* Forms */
+.fi-input,
+.fi-select-input,
+.fi-ta-search-field input {
+    border-radius: 0.7rem !important;
+}
+
+.fi-fo-field-wrp-label span {
+    font-weight: 600 !important;
+    color: #1E293B !important;
+}
+
+/* Badges */
+.fi-badge {
+    border-radius: 999px !important;
+    font-weight: 600 !important;
+}

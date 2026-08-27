@@ -9,8 +9,8 @@
     $phone = $settings['phone'] ?? '+234 906 393 9859';
     $phoneHref = 'tel:'.preg_replace('/\s+/', '', $phone);
 @endphp
-<footer class="relative overflow-hidden" style="background:#000000;color:#ffffff">
-    <div class="border-b" style="border-color:rgba(255,255,255,0.1)">
+<footer class="relative overflow-hidden" style="background:linear-gradient(180deg,#0B1220 0%,#0F172A 55%,#152238 100%);color:#ffffff">
+    <div class="border-b" style="border-color:rgba(255,255,255,0.08)">
         <div class="mx-auto max-w-[1400px] px-5 sm:px-8 py-16 md:py-20 flex flex-col md:flex-row md:items-end md:justify-between gap-10">
             <div class="max-w-2xl">
                 <span class="inline-flex items-center gap-2 text-[11px] tracking-[0.32em] uppercase font-medium" style="color:#4ECDC4">

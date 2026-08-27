@@ -13,8 +13,8 @@
         </div>
         <div class="grid grid-cols-12 gap-5">
             @foreach($teamMembers as $member)
-            <div class="col-span-12 sm:col-span-6 lg:col-span-3 group relative rounded-3xl overflow-hidden bg-white border flex flex-col" style="border-color:rgba(0,0,0,0.08)">
-                <div class="relative aspect-[4/5] overflow-hidden" style="background:linear-gradient(160deg, #1a1a1a 0%, #333 100%)">
+            <div class="lg-card col-span-12 sm:col-span-6 lg:col-span-3 group relative rounded-3xl overflow-hidden bg-white flex flex-col">
+                <div class="lg-media relative aspect-[4/5] overflow-hidden" style="background:linear-gradient(160deg, #0F172A 0%, #1E293B 100%)">
                     @if($member->photo)
                     <img src="{{ media_url($member->photo) }}" alt="{{ $member->name }}" loading="lazy" class="absolute inset-0 h-full w-full object-cover grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 group-hover:scale-[1.04]"/>
                     @endif
