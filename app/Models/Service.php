@@ -18,4 +18,13 @@ class Service extends Model
             'is_published' => 'boolean',
         ];
     }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Service $service): void {
+            if (filled($service->body_html)) {
+                $service->body_html = normalize_cms_html($service->body_html);
+            }
+        });
+    }
 }

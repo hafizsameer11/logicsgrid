@@ -83,6 +83,9 @@ if [ "${RUN_SEED:-true}" != "false" ]; then
     php artisan db:seed --force --no-interaction || echo "WARNING: Seeding skipped or failed."
 fi
 
+echo "==> Normalizing CMS asset URLs..."
+php artisan cms:normalize-urls --no-interaction 2>/dev/null || true
+
 php artisan package:discover --ansi 2>/dev/null || true
 php artisan livewire:publish --assets 2>/dev/null || true
 php artisan filament:assets 2>/dev/null || true

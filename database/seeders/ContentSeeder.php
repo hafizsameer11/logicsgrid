@@ -586,7 +586,9 @@ class ContentSeeder extends Seeder
 
     private function readBlade(string $filename): string
     {
-        return render_cms_html($this->readBladeRaw($filename));
+        // Render Blade, then force root-relative asset/site URLs so seeded HTML
+        // works on any domain (not baked to localhost / APP_URL).
+        return normalize_cms_html(render_cms_html($this->readBladeRaw($filename)));
     }
 
     private function pageTitleFromMeta(string $metaTitle): string

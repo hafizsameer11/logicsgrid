@@ -29,11 +29,45 @@ if (! function_exists('public_asset')) {
 }
 
 if (! function_exists('fix_malformed_asset_urls')) {
+    /**
+     * Make CMS HTML portable across environments.
+     * Converts absolute localhost / APP_URL asset links to root-relative paths.
+     */
     function fix_malformed_asset_urls(string $html): string
     {
-        $html = preg_replace('#https?://[^"\'\s>]+\.[^/"\'\s>]+/logicsgrid\.org/(assets|css|js)/#', '/$1/', $html) ?? $html;
+        // Any absolute host pointing at public folders → root-relative (do this first)
+        $html = preg_replace(
+            '#https?://[^"\'\s>]+/(assets|css|js|storage)/#i',
+            '/$1/',
+            $html
+        ) ?? $html;
 
-        return preg_replace('#/logicsgrid\.org/(assets|css|js)/#', '/$1/', $html) ?? $html;
+        // Legacy bad concatenations like https://x.com/logicsgrid.org/assets/...
+        $html = preg_replace(
+            '#https?://[^/"\'\s>]+/logicsgrid\.org/(assets|css|js|storage)/#i',
+            '/$1/',
+            $html
+        ) ?? $html;
+
+        // Local/dev absolute site links → root-relative (keeps external https links intact)
+        $html = preg_replace('#https?://localhost(?::\d+)?(/[^"\'\s>]*)?#i', '$1', $html) ?? $html;
+        $html = preg_replace('#https?://127\.0\.0\.1(?::\d+)?(/[^"\'\s>]*)?#i', '$1', $html) ?? $html;
+
+        // Empty href after stripping host-only URLs (e.g. http://localhost:8000 → "")
+        $html = str_replace(['href=""', "href=''", 'src=""', "src=''"], ['href="/"', "href='/'", 'src="/"', "src='/'"], $html);
+
+        return $html;
+    }
+}
+
+if (! function_exists('normalize_cms_html')) {
+    function normalize_cms_html(?string $html): string
+    {
+        if (! $html) {
+            return '';
+        }
+
+        return fix_malformed_asset_urls($html);
     }
 }
 
@@ -53,7 +87,7 @@ if (! function_exists('render_cms_html')) {
                     fn (array $matches) => public_asset($matches[1]),
                     preg_replace_callback(
                         "/\{\{\s*url\(\s*['\"]([^'\"]+)['\"]\s*\)\s*\}\}/",
-                        fn (array $matches) => url($matches[1]),
+                        fn (array $matches) => $matches[1] === '/' ? '/' : url($matches[1]),
                         $html
                     ) ?? $html
                 ) ?? $html;

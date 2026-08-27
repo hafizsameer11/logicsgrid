@@ -14,4 +14,13 @@ class Page extends Model
     {
         return ['is_published' => 'boolean'];
     }
+
+    protected static function booted(): void
+    {
+        static::saving(function (Page $page): void {
+            if (filled($page->body_html)) {
+                $page->body_html = normalize_cms_html($page->body_html);
+            }
+        });
+    }
 }
