@@ -18,7 +18,17 @@ if [ -n "$APP_URL" ]; then
     esac
     export APP_URL="${APP_URL%/}"
     export ASSET_URL="$APP_URL"
+
+    case "$APP_URL" in
+        https://*)
+            export SESSION_SECURE_COOKIE="${SESSION_SECURE_COOKIE:-true}"
+            export SESSION_SAME_SITE="${SESSION_SAME_SITE:-lax}"
+            ;;
+    esac
 fi
+
+export SESSION_DRIVER="${SESSION_DRIVER:-database}"
+# Leave SESSION_DOMAIN unset unless explicitly provided (string "null" breaks cookies)
 
 if [ -z "$DB_CONNECTION" ]; then
     export DB_CONNECTION=sqlite
@@ -74,11 +84,16 @@ if [ "${RUN_SEED:-true}" != "false" ]; then
 fi
 
 php artisan package:discover --ansi 2>/dev/null || true
+php artisan livewire:publish --assets 2>/dev/null || true
+php artisan filament:assets 2>/dev/null || true
 php artisan config:clear 2>/dev/null || true
 php artisan route:clear 2>/dev/null || true
+php artisan view:clear 2>/dev/null || true
 php artisan config:cache
 php artisan view:cache
 php artisan filament:optimize 2>/dev/null || true
+
+# Never cache routes in production for Livewire/Filament — dynamic routes break.
 
 chown -R www-data:www-data storage bootstrap/cache
 
