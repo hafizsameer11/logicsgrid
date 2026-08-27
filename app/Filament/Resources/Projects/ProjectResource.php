@@ -10,6 +10,7 @@ use App\Filament\Resources\Projects\RelationManagers\ScreensRelationManager;
 use App\Filament\Resources\Projects\RelationManagers\StatsRelationManager;
 use App\Filament\Resources\Projects\Schemas\ProjectForm;
 use App\Filament\Resources\Projects\Tables\ProjectsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\Project;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -19,6 +20,8 @@ use Filament\Tables\Table;
 
 class ProjectResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = Project::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

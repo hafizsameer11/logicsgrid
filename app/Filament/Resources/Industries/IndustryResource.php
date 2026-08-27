@@ -7,6 +7,7 @@ use App\Filament\Resources\Industries\Pages\EditIndustry;
 use App\Filament\Resources\Industries\Pages\ListIndustries;
 use App\Filament\Resources\Industries\Schemas\IndustryForm;
 use App\Filament\Resources\Industries\Tables\IndustriesTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\Industry;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class IndustryResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = Industry::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

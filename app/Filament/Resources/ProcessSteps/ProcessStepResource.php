@@ -7,6 +7,7 @@ use App\Filament\Resources\ProcessSteps\Pages\EditProcessStep;
 use App\Filament\Resources\ProcessSteps\Pages\ListProcessSteps;
 use App\Filament\Resources\ProcessSteps\Schemas\ProcessStepForm;
 use App\Filament\Resources\ProcessSteps\Tables\ProcessStepsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\ProcessStep;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class ProcessStepResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = ProcessStep::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

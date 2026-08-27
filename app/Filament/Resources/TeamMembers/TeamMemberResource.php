@@ -7,6 +7,7 @@ use App\Filament\Resources\TeamMembers\Pages\EditTeamMember;
 use App\Filament\Resources\TeamMembers\Pages\ListTeamMembers;
 use App\Filament\Resources\TeamMembers\Schemas\TeamMemberForm;
 use App\Filament\Resources\TeamMembers\Tables\TeamMembersTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\TeamMember;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class TeamMemberResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = TeamMember::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

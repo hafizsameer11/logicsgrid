@@ -7,6 +7,7 @@ use App\Filament\Resources\Services\Pages\EditService;
 use App\Filament\Resources\Services\Pages\ListServices;
 use App\Filament\Resources\Services\Schemas\ServiceForm;
 use App\Filament\Resources\Services\Tables\ServicesTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\Service;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class ServiceResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = Service::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

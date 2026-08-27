@@ -7,6 +7,7 @@ use App\Filament\Resources\SocialLinks\Pages\EditSocialLink;
 use App\Filament\Resources\SocialLinks\Pages\ListSocialLinks;
 use App\Filament\Resources\SocialLinks\Schemas\SocialLinkForm;
 use App\Filament\Resources\SocialLinks\Tables\SocialLinksTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\SocialLink;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class SocialLinkResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = SocialLink::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

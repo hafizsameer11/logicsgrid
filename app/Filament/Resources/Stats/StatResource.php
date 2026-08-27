@@ -7,6 +7,7 @@ use App\Filament\Resources\Stats\Pages\EditStat;
 use App\Filament\Resources\Stats\Pages\ListStats;
 use App\Filament\Resources\Stats\Schemas\StatForm;
 use App\Filament\Resources\Stats\Tables\StatsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\Stat;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class StatResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = Stat::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

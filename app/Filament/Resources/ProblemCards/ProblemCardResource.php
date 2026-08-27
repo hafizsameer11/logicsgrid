@@ -7,6 +7,7 @@ use App\Filament\Resources\ProblemCards\Pages\EditProblemCard;
 use App\Filament\Resources\ProblemCards\Pages\ListProblemCards;
 use App\Filament\Resources\ProblemCards\Schemas\ProblemCardForm;
 use App\Filament\Resources\ProblemCards\Tables\ProblemCardsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\ProblemCard;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class ProblemCardResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = ProblemCard::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

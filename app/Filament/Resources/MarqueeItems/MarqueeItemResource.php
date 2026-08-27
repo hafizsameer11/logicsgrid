@@ -7,6 +7,7 @@ use App\Filament\Resources\MarqueeItems\Pages\EditMarqueeItem;
 use App\Filament\Resources\MarqueeItems\Pages\ListMarqueeItems;
 use App\Filament\Resources\MarqueeItems\Schemas\MarqueeItemForm;
 use App\Filament\Resources\MarqueeItems\Tables\MarqueeItemsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\MarqueeItem;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class MarqueeItemResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = MarqueeItem::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

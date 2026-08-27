@@ -7,6 +7,7 @@ use App\Filament\Resources\WhyReasons\Pages\EditWhyReason;
 use App\Filament\Resources\WhyReasons\Pages\ListWhyReasons;
 use App\Filament\Resources\WhyReasons\Schemas\WhyReasonForm;
 use App\Filament\Resources\WhyReasons\Tables\WhyReasonsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\WhyReason;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class WhyReasonResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = WhyReason::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

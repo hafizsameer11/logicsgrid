@@ -7,6 +7,7 @@ use App\Filament\Resources\JobListings\Pages\EditJobListing;
 use App\Filament\Resources\JobListings\Pages\ListJobListings;
 use App\Filament\Resources\JobListings\Schemas\JobListingForm;
 use App\Filament\Resources\JobListings\Tables\JobListingsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\JobListing;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class JobListingResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = JobListing::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

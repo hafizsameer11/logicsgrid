@@ -7,6 +7,7 @@ use App\Filament\Resources\SiteSettings\Pages\EditSiteSetting;
 use App\Filament\Resources\SiteSettings\Pages\ListSiteSettings;
 use App\Filament\Resources\SiteSettings\Schemas\SiteSettingForm;
 use App\Filament\Resources\SiteSettings\Tables\SiteSettingsTable;
+use App\Filament\Concerns\RequiresAdminAccess;
 use App\Models\SiteSetting;
 use BackedEnum;
 use Filament\Resources\Resource;
@@ -16,6 +17,8 @@ use Filament\Tables\Table;
 
 class SiteSettingResource extends Resource
 {
+    use RequiresAdminAccess;
+
     protected static ?string $model = SiteSetting::class;
 
     protected static string|BackedEnum|null $navigationIcon = Heroicon::OutlinedRectangleStack;

@@ -21,9 +21,13 @@ class DatabaseSeeder extends Seeder
             [
                 'name' => 'LogicsGrid Admin',
                 'password' => Hash::make('password'),
+                'role' => User::ROLE_ADMIN,
+                'designation' => 'Administrator',
+                'status' => User::STATUS_ACTIVE,
             ]
         );
 
         $this->call(ContentSeeder::class);
+        $this->call(CrmSeeder::class);
     }
 }
